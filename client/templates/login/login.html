@@ -1,0 +1,19 @@
+<template name="Login">
+  <div class="container">
+    <form class="form-signin" id="formLogin">
+      <h2 class="form-signin-heading text-center">Autentique-se para continuar</h2>
+      <div class="alert alert-warning alert-dismissible" hidden id="alerta-erro">
+              <h4><i class="icon fa fa-warning"></i> Alerta!</h4>
+              <span id="mensagem-alerta"></span>
+      </div>
+
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input id="inputEmail" class="form-control"
+             placeholder="Informe seu e-mail aqui"
+            required="" autofocus="" type="email" name="email">
+      <label for="inputPassword" class="sr-only">Senha</label>
+      <input name="senha" id="inputPassword" class="form-control" placeholder="Digite sua senha" required="" type="password">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+  </div>
+</template>
