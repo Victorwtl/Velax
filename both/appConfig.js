@@ -4,13 +4,34 @@ AdminConfig = {
 	collections: {
 		Pessoas: {
 			icon: "smile-o",
-			label: "Pessoas",
 			color: "red",
 			tableColumns: [
-				{label: "Nome", name: "nome"},
-				{label: "CPF", name: "cpf"},
-				{label: "Tipo de Pessoa", name: "tipoPessoa"}
-			],
+				{label: "Nome da pessoa", name: "nome"},
+				{
+					label: "Classificação",
+					name: "tipo",
+					render: function(val, type, doc) {
+						if (val == "FUNCIONARIO") {
+							return "Funcionário";
+						}
+						if (val == "FORNECEDOR") {
+							return "Fornecedor";
+						}
+						return "Cliente";
+					}
+				}
+			]
+		},
+		Produtos: {
+			icon: 'cubes',
+			color: "purple",
+			tableColumns: [
+				{label: "Nome do produto", name: 'nome'},
+				{
+					label: "Fornecedor",
+					name: "nomeFornecedor()"
+				}
+			]
 		}
 	}
 }

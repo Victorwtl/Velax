@@ -20,17 +20,17 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
-less
-random
+
+iron:router
+dburles:collection-helpers
+aldeed:collection2
 accounts-base
 accounts-password
 alanning:roles
-fortawesome:fontawesome
 twbs:bootstrap
+fortawesome:fontawesome
 session
-aldeed:autoform
-aldeed:collection2
 yogiben:admin
-iron:router
-aldeed:autoform-bs-datetimepicker
-tsega:bootstrap3-datetimepicker@=3.1.3_3
+codechimp:autoform-masked-input
+natestrauser:select2
+aldeed:autoform-select2
