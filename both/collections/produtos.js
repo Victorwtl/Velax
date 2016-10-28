@@ -1,7 +1,9 @@
-Produtos = new Mongo.Collection("Produtos");
+Produtos = new Mongo.Collection("produtos");
 
 Produtos.helpers({
   nomeFornecedor: function() {
+    console.log(this);
+
     if (this.fornecedor) {
       return Pessoas.findOne(this.fornecedor).nome;
     } else {
@@ -32,8 +34,52 @@ Produtos.attachSchema(new SimpleSchema({
         return valores;
       }
     }
+  },
+  valores: {
+    type: Object,
+    label: "Valores da mercadoria",
+    optional: false
+  },
+  "valores.precoVenda": {
+    type: Number,
+    label: "Preço de Venda (em R$)",
+    optional: false,
+    decimal: true
+  },
+  "valores.precoCusto": {
+    type: Number,
+    label: "Preço de Custo (em R$)",
+    optional: false,
+    decimal: true
+  },
+  estoque: {
+    label: "Informações do estoque",
+    type: Object,
+    optional: false
+  },
+  "estoque.quantidade": {
+    optional: false,
+    label: "Quantidade total",
+    type: Number,
+    regEx: /^\d{1,}$/g
+  },
+  "estoque.quantidadeDisponivel": {
+    type: Number,
+    regEx: /^\d{1,}$/g,
+    label: "Quantidade Disponível",
+    optional: false
+  },
+  descricao: {
+    type: String,
+    optional: true,
+    label: "Descrição opcional do produto",
+    autoform: {
+      afFieldInput: {
+        type: "textarea",
+        rows: 4
+      }
+    }
   }
-
 }));
 
 Produtos.allow({

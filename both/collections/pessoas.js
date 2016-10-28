@@ -1,4 +1,4 @@
-Pessoas = new Mongo.Collection("Pessoas");
+Pessoas = new Mongo.Collection("pessoas");
 
 Pessoas.attachSchema(new SimpleSchema({
   nome: {
@@ -13,11 +13,11 @@ Pessoas.attachSchema(new SimpleSchema({
   tipo: {
     type: String,
     label: "Tipo de Cliente",
-    allowedValues: ["FUNCIONARIO", "FORNECEDOR"],
+    allowedValues: ["FUNCIONARIO", "FORNECEDOR", "CLIENTE"],
     optional: false,
     autoform: {
       options: [
-        {label: "Cliente comum", value: "COMUM"},
+        {label: "Cliente comum", value: "CLIENTE"},
         {label: "Funcionário", value: "FUNCIONARIO"},
         {label: "Fornecedor", value: "FORNECEDOR"}
       ]

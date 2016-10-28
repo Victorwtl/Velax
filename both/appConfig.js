@@ -25,6 +25,7 @@ AdminConfig = {
 		Produtos: {
 			icon: 'cubes',
 			color: "purple",
+			extraFields: ['fornecedor'],
 			tableColumns: [
 				{label: "Nome do produto", name: 'nome'},
 				{
