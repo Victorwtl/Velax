@@ -33,6 +33,27 @@ AdminConfig = {
 					name: "nomeFornecedor()"
 				}
 			]
+		},
+		EntradasProduto: {
+			icon: 'shopping-cart',
+			color: 'green',
+			name: "Entrada de Produto",
+			extraFields: ['fornecedor', 'produto', 'dataEntrada'],
+			tableColumns: [
+				{
+					label: "Data",
+					name: "dataEntrada()"
+				}, {
+					label: "Nome do produto",
+					name: "nomeProduto()"
+				}, {
+					label: "Fornecido por",
+					name: "nomeFornecedor()"
+				}, {
+					label: "Qtd",
+					name: "quantidade"
+				}
+			]
 		}
 	}
 }

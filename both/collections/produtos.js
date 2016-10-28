@@ -2,8 +2,6 @@ Produtos = new Mongo.Collection("produtos");
 
 Produtos.helpers({
   nomeFornecedor: function() {
-    console.log(this);
-
     if (this.fornecedor) {
       return Pessoas.findOne(this.fornecedor).nome;
     } else {
@@ -91,5 +89,18 @@ Produtos.allow({
   },
   remove: function(){
     return true;
+  }
+});
+
+//triggers
+Produtos.before.insert(function (userId, doc) {
+  if (doc.estoque.quantidade < doc.estoque.quantidadeDisponivel) {
+    doc.quantidadeDisponivel = doc.quantidade;
+  }
+});
+
+Produtos.before.update(function(userId, doc) {
+  if (doc.estoque.quantidadeDisponivel < 0) {
+    doc.estoque.quantidadeDisponivel = 0;
   }
 });
